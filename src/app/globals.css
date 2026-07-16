@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --brand-navy: #0a1628;
+  --brand-navy-soft: #16304a;
+  --brand-ivory: #f3eee4;
+  --brand-ivory-muted: #e8e1d4;
+  --navy: #0a1628;
+  --navy-soft: #16304a;
+  --ivory: #f3eee4;
+  --ivory-muted: #e8e1d4;
+  --gold: #b8956c;
+  --gold-soft: #c9aa84;
+  --background: #f7f4ee;
+  --foreground: #0a1628;
+  --surface: #fffdfa;
+  --muted: #5d6978;
+  --border: rgba(10, 22, 40, 0.1);
+  --ring: rgba(184, 149, 108, 0.55);
+}
+
+.dark {
+  --background: #070e17;
+  --foreground: #f3eee4;
+  --surface: #0d1724;
+  --muted: #9aa6b5;
+  --border: rgba(243, 238, 228, 0.12);
+  --navy: #f3eee4;
+  --navy-soft: #d8d1c4;
+  --ivory: #0a1628;
+  --ivory-muted: #122033;
+  --gold: #c9aa84;
+  --gold-soft: #d8bc96;
+}
+
+@theme inline {
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-soft: var(--brand-navy-soft);
+  --color-brand-ivory: var(--brand-ivory);
+  --color-brand-ivory-muted: var(--brand-ivory-muted);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-ivory: var(--ivory);
+  --color-ivory-muted: var(--ivory-muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+  --shadow-elevated: 0 24px 60px rgba(10, 22, 40, 0.12);
+  --background-image-hero-glow: radial-gradient(
+      60% 50% at 12% 8%,
+      rgba(184, 149, 108, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(45% 40% at 88% 0%, rgba(22, 48, 74, 0.12), transparent 55%);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 35%, transparent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+
+  .bg-hero-glow {
+    background-image: var(--background-image-hero-glow);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-panel {
+    background: color-mix(in oklab, var(--surface) 78%, transparent);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+  }
+}
