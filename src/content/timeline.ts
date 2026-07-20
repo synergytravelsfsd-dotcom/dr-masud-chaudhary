@@ -4,9 +4,86 @@ export type TimelineEvent = {
   title: string;
   location: string;
   summary: string;
-  category: "career" | "leadership" | "international" | "innovation";
+  category: "career" | "leadership" | "international" | "innovation" | "education";
 };
 
+/** Chronological professional path — formation through enterprise and scholarship. */
+export const careerJourney: TimelineEvent[] = [
+  {
+    id: "dvm",
+    year: "1995",
+    title: "Doctor of Veterinary Medicine",
+    location: "Pakistan",
+    summary:
+      "Completed the DVM — the clinical and scientific foundation for three decades of animal health practice.",
+    category: "education",
+  },
+  {
+    id: "tech-pk-start",
+    year: "1995–1996",
+    title: "Technical Services, Poultry Industry",
+    location: "Pakistan",
+    summary:
+      "Entered commercial poultry with field technical services — bridging veterinary science and production realities.",
+    category: "career",
+  },
+  {
+    id: "tech-saudi",
+    year: "1996–1999",
+    title: "Technical Service, Poultry Sector",
+    location: "Saudi Arabia",
+    summary:
+      "Delivered technical service across Gulf poultry operations, building early international field experience.",
+    category: "international",
+  },
+  {
+    id: "tech-pk-return",
+    year: "1999–2002",
+    title: "Technical Services to Poultry Industry",
+    location: "Pakistan",
+    summary:
+      "Returned to strengthen poultry technical programmes across commercial flocks and production systems.",
+    category: "career",
+  },
+  {
+    id: "uk-mba",
+    year: "2002–2008",
+    title: "MBA & Customer Services Leadership",
+    location: "United Kingdom",
+    summary:
+      "Relocated to the UK, completed an MBA, and served as Customer Services Manager — pairing commercial discipline with veterinary depth.",
+    category: "education",
+  },
+  {
+    id: "enterprise-farming",
+    year: "2008–2016",
+    title: "Feed Additive Imports & Integrated Farming",
+    location: "Pakistan",
+    summary:
+      "Founded an imports business in feed additives and launched production across broiler, layer, and breeder farming.",
+    category: "career",
+  },
+  {
+    id: "manufacturing",
+    year: "2016–Present",
+    title: "Imports & Local Veterinary Manufacturing",
+    location: "Pakistan",
+    summary:
+      "Expanded into local manufacturing of veterinary products — antibiotics, feed supplements, additives, and biosecurity solutions — alongside continued imports.",
+    category: "career",
+  },
+  {
+    id: "msc-austria",
+    year: "2026",
+    title: "MSc, Precision in Animal Health",
+    location: "Austria",
+    summary:
+      "Continuing postgraduate study in precision animal health — advancing data-driven livestock systems and next-generation veterinary practice.",
+    category: "education",
+  },
+];
+
+/** Leadership and influence milestones. */
 export const careerTimeline: TimelineEvent[] = [
   {
     id: "veterinary-foundation",
@@ -80,4 +157,13 @@ export const careerTimeline: TimelineEvent[] = [
       "Championing AI-enabled livestock systems, digital decision support, and next-generation poultry intelligence platforms.",
     category: "innovation",
   },
+];
+
+/** Curated arc for the homepage — spans formation to present influence. */
+export const careerHighlights: TimelineEvent[] = [
+  careerJourney[0],
+  careerJourney[2],
+  careerJourney[4],
+  careerJourney[6],
+  careerTimeline[4],
 ];

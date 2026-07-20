@@ -6,7 +6,7 @@ import { Portrait } from "@/components/brand/portrait";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
 import { Container, Eyebrow, Section, SectionHeading } from "@/components/ui/layout-primitives";
-import { careerTimeline } from "@/content/timeline";
+import { careerHighlights } from "@/content/timeline";
 import { caseStudies } from "@/content/case-studies";
 import { publications } from "@/content/publications";
 import { expertise, leadership, roles, siteConfig } from "@/lib/site";
@@ -174,11 +174,11 @@ export function HomeTimeline() {
       <Container>
         <SectionHeading
           eyebrow="Career arc"
-          title="Two decades of international practice."
-          description="From veterinary foundations to European expansion, association leadership, and AI agriculture advocacy."
+          title="Three decades of international practice."
+          description="From the DVM and Gulf technical service to UK leadership, veterinary manufacturing, and AI agriculture advocacy."
         />
         <div className="mt-14 space-y-0 border-l border-border pl-6 sm:pl-8">
-          {careerTimeline.slice(0, 5).map((event, index) => (
+          {careerHighlights.map((event, index) => (
             <FadeIn key={event.id} delay={index * 0.05} className="relative pb-10 last:pb-0">
               <span className="absolute -left-[1.9rem] top-1.5 h-2.5 w-2.5 rounded-full bg-gold sm:-left-[2.15rem]" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">

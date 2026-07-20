@@ -10,7 +10,7 @@ import {
   Section,
   SectionHeading,
 } from "@/components/ui/layout-primitives";
-import { careerTimeline } from "@/content/timeline";
+import { careerJourney, careerTimeline } from "@/content/timeline";
 import { leadership, roles, siteConfig } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="A practitioner of animal health with global institutional reach."
-        description={`${siteConfig.name} brings more than two decades of veterinary, pharmaceutical, and agribusiness leadership across Pakistan, Europe, and the Middle East.`}
+        description={`${siteConfig.name} brings three decades of veterinary, pharmaceutical, and agribusiness leadership across Pakistan, Europe, and the Middle East.`}
         actions={
           <>
             <Button asChild>
@@ -107,19 +107,58 @@ export default function AboutPage() {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="Timeline" title="Career milestones" />
-          <div className="mt-12 grid gap-4">
-            {careerTimeline.map((event, i) => (
-              <FadeIn key={event.id} delay={i * 0.04}>
-                <article className="grid gap-3 rounded-3xl border border-border bg-surface p-6 sm:grid-cols-[7rem_1fr]">
-                  <p className="text-sm font-semibold text-gold">{event.year}</p>
+          <SectionHeading
+            eyebrow="Journey"
+            title="From clinical roots to global enterprise."
+            description="A three-decade path across veterinary practice, international markets, manufacturing, and precision animal health."
+          />
+          <ol className="relative mt-14 space-y-0 border-l border-border pl-6 sm:pl-10">
+            {careerJourney.map((event, i) => (
+              <FadeIn key={event.id} delay={i * 0.04} className="relative pb-12 last:pb-0">
+                <span
+                  className="absolute -left-[1.9rem] top-1.5 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-background sm:-left-[2.65rem]"
+                  aria-hidden
+                />
+                <div className="grid gap-3 sm:grid-cols-[8.5rem_1fr] sm:gap-8">
+                  <p className="pt-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+                    {event.year}
+                  </p>
                   <div>
-                    <h3 className="font-display text-xl tracking-tight">{event.title}</h3>
+                    <h3 className="font-display text-2xl tracking-tight">{event.title}</h3>
                     <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted">
                       {event.location}
                     </p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">{event.summary}</p>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                      {event.summary}
+                    </p>
                   </div>
+                </div>
+              </FadeIn>
+            ))}
+          </ol>
+        </Container>
+      </Section>
+
+      <Section className="bg-surface">
+        <Container>
+          <SectionHeading
+            eyebrow="Milestones"
+            title="Career milestones"
+            description="Leadership seats and influence markers that define the public record."
+          />
+          <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2">
+            {careerTimeline.map((event, i) => (
+              <FadeIn key={event.id} delay={i * 0.04}>
+                <article className="border-t border-border pt-6">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+                    {event.year}
+                    <span className="mx-2 text-border">·</span>
+                    <span className="text-muted">{event.location}</span>
+                  </p>
+                  <h3 className="mt-3 font-display text-xl tracking-tight sm:text-2xl">
+                    {event.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{event.summary}</p>
                 </article>
               </FadeIn>
             ))}
@@ -127,7 +166,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section className="bg-surface">
+      <Section>
         <Container>
           <SectionHeading eyebrow="Current seats" title="Where influence is exercised." />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -135,7 +174,7 @@ export default function AboutPage() {
               <Link
                 key={item.org}
                 href={item.href}
-                className="rounded-3xl border border-border bg-background p-7 transition-colors hover:border-gold/40"
+                className="rounded-3xl border border-border bg-surface p-7 transition-colors hover:border-gold/40"
               >
                 <Eyebrow>{item.title}</Eyebrow>
                 <p className="font-display text-2xl tracking-tight">{item.org}</p>

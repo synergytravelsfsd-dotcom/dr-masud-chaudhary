@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { publications } from "@/content/publications";
 import { caseStudies } from "@/content/case-studies";
-import { careerTimeline } from "@/content/timeline";
+import { careerJourney, careerTimeline } from "@/content/timeline";
 import { expertise, leadership } from "@/lib/site";
 
 export async function GET(request: Request) {
@@ -27,12 +27,12 @@ export async function GET(request: Request) {
       excerpt: c.summary,
       haystack: `${c.title} ${c.summary} ${c.sector} ${c.region}`,
     })),
-    ...careerTimeline.map((t) => ({
+    ...[...careerJourney, ...careerTimeline].map((t) => ({
       type: "timeline" as const,
       title: t.title,
       href: "/about",
       excerpt: t.summary,
-      haystack: `${t.title} ${t.summary} ${t.location}`,
+      haystack: `${t.title} ${t.summary} ${t.location} ${t.year}`,
     })),
     ...leadership.map((l) => ({
       type: "leadership" as const,
