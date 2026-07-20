@@ -13,25 +13,27 @@ import { expertise, leadership, roles, siteConfig } from "@/lib/site";
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-[min(92vh,56rem)] overflow-hidden border-b border-border">
-      <div className="absolute inset-0 bg-[linear-gradient(160deg,#0a1628_0%,#12263a_48%,#1a334d_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(184,149,108,0.18),transparent_45%)]" />
-      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.35)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.35)_1px,transparent_1px)] [background-size:72px_72px]" />
+    <section className="relative min-h-[min(88vh,54rem)] overflow-hidden border-b border-border bg-[#f7fbff]">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(11,92,171,0.12),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(13,138,150,0.1),transparent_45%)]" />
 
-      <div className="relative grid min-h-[min(92vh,56rem)] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-        <div className="flex flex-col justify-center px-5 pb-12 pt-28 sm:px-8 sm:pb-16 lg:px-10 lg:pb-20 lg:pl-[max(2.5rem,calc((100vw-72rem)/2+2.5rem))] lg:pt-32 xl:pl-[max(2.5rem,calc((100vw-72rem)/2+2.5rem))]">
+      <div className="relative grid min-h-[min(88vh,54rem)] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="flex flex-col justify-center px-5 pb-12 pt-24 sm:px-8 sm:pb-16 lg:px-10 lg:pb-20 lg:pl-[max(2.5rem,calc((100vw-72rem)/2+2.5rem))] lg:pt-28">
           <FadeIn immediate>
-            <h1 className="max-w-xl font-display text-4xl tracking-tight text-brand-ivory sm:text-5xl lg:text-[3.65rem] lg:leading-[1.05]">
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
+              Digital headquarters
+            </p>
+            <h1 className="max-w-xl font-display text-4xl tracking-tight text-foreground sm:text-5xl lg:text-[3.65rem] lg:leading-[1.05]">
               {siteConfig.name}
             </h1>
           </FadeIn>
           <FadeIn immediate delay={0.08}>
-            <p className="mt-6 max-w-xl text-xl font-medium leading-snug text-brand-ivory/90 sm:text-2xl lg:text-[1.5rem]">
+            <p className="mt-6 max-w-xl text-xl font-medium leading-snug text-brand-navy sm:text-2xl lg:text-[1.5rem]">
               Global leadership in animal health, poultry innovation, and veterinary pharmaceuticals.
             </p>
           </FadeIn>
           <FadeIn immediate delay={0.14}>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-brand-ivory/65 sm:text-lg">
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
               {siteConfig.experienceYears}+ years advising governments, producers, and industry
               partners across {siteConfig.locations.slice(0, 3).join(", ")}, and beyond — advancing
               One Health and AI-enabled agriculture.
@@ -39,42 +41,34 @@ export function HomeHero() {
           </FadeIn>
           <FadeIn immediate delay={0.2}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button asChild variant="gold" size="lg">
+              <Button asChild variant="primary" size="lg">
                 <Link href="/consulting">
                   Explore consulting
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="secondary"
-                size="lg"
-                className="border-brand-ivory/25 text-brand-ivory hover:border-gold/50 hover:bg-brand-ivory/5"
-              >
+              <Button asChild variant="secondary" size="lg">
                 <Link href="/speaking">Invite to speak</Link>
               </Button>
             </div>
           </FadeIn>
           <FadeIn immediate delay={0.28}>
-            <div className="mt-14 grid max-w-xl gap-6 border-t border-brand-ivory/15 pt-8 sm:grid-cols-3">
+            <div className="mt-14 grid max-w-xl gap-6 border-t border-border pt-8 sm:grid-cols-3">
               {[
                 ["20+", "Years of executive & technical leadership"],
                 ["6+", "Regions of active international engagement"],
-                                ["7", "Current leadership & representation mandates"],
+                ["7", "Current leadership & representation mandates"],
               ].map(([stat, label]) => (
                 <div key={label}>
-                  <p className="font-display text-3xl text-gold sm:text-4xl">{stat}</p>
-                  <p className="mt-2 text-sm text-brand-ivory/60">{label}</p>
+                  <p className="font-display text-3xl text-brand-navy sm:text-4xl">{stat}</p>
+                  <p className="mt-2 text-sm text-muted">{label}</p>
                 </div>
               ))}
             </div>
           </FadeIn>
         </div>
 
-        <FadeIn immediate delay={0.1} className="relative min-h-[26rem] lg:min-h-full">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a1628] to-transparent max-lg:hidden" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-[#0a1628] to-transparent lg:hidden" />
-          <div className="pointer-events-none absolute inset-0 z-10 bg-[#0a1628]/15 mix-blend-multiply" />
+        <FadeIn immediate delay={0.1} className="relative min-h-[26rem] bg-white lg:min-h-full">
           <Portrait
             variant="hero"
             priority
@@ -130,10 +124,10 @@ export function HomeLeadership() {
             <StaggerItem key={item.org}>
               <Link
                 href={item.href}
-                className="group block h-full rounded-3xl border border-border bg-surface p-7 transition-all duration-300 hover:border-gold/40 hover:shadow-elevated"
+                className="group block h-full rounded-3xl border border-border bg-surface p-7 transition-all duration-300 hover:border-brand-navy/30 hover:shadow-elevated"
               >
                 <Eyebrow>{item.title}</Eyebrow>
-                <p className="font-display text-2xl tracking-tight text-foreground transition-colors group-hover:text-navy-soft dark:group-hover:text-gold">
+                <p className="font-display text-2xl tracking-tight text-foreground transition-colors group-hover:text-brand-navy">
                   {item.org}
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 text-sm text-muted transition-colors group-hover:text-foreground">
@@ -151,20 +145,19 @@ export function HomeLeadership() {
 
 export function HomeExpertise() {
   return (
-    <Section className="relative overflow-hidden bg-brand-navy text-brand-ivory">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(184,149,108,0.18),transparent_40%)]" />
+    <Section className="relative overflow-hidden bg-surface">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(11,92,171,0.08),transparent_42%)]" />
       <Container className="relative">
         <SectionHeading
           eyebrow="Core expertise"
           title="Technical depth. Strategic range."
           description="A practice designed for institutions that need credibility in both the laboratory and the boardroom."
-          tone="inverse"
         />
         <div className="mt-12 flex flex-wrap gap-2.5">
           {expertise.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-brand-ivory/15 bg-brand-ivory/[0.04] px-4 py-2 text-sm text-brand-ivory/85"
+              className="rounded-full border border-brand-navy/15 bg-brand-navy/[0.04] px-4 py-2 text-sm text-foreground"
             >
               {item}
             </span>
@@ -232,7 +225,7 @@ export function HomeInsights() {
               <Eyebrow>
                 {pub.type} · {new Date(pub.date).getFullYear()}
               </Eyebrow>
-              <h3 className="font-display text-2xl tracking-tight transition-colors group-hover:text-navy-soft dark:group-hover:text-gold">
+              <h3 className="font-display text-2xl tracking-tight transition-colors group-hover:text-brand-navy">
                 {pub.title}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-muted">{pub.summary}</p>
@@ -274,12 +267,12 @@ export function HomeCTA() {
   return (
     <Section>
       <Container>
-        <div className="overflow-hidden rounded-[2rem] border border-border bg-[linear-gradient(135deg,#0a1628,#16304a)] px-8 py-14 text-ivory sm:px-12 sm:py-16">
-          <Eyebrow className="text-gold">Next engagement</Eyebrow>
+        <div className="overflow-hidden rounded-[2rem] border border-border bg-[linear-gradient(135deg,#0b5cab,#1a74c7)] px-8 py-14 text-brand-ivory sm:px-12 sm:py-16">
+          <Eyebrow className="text-white/90">Next engagement</Eyebrow>
           <h2 className="max-w-2xl font-display text-3xl tracking-tight sm:text-4xl">
             Engage for consulting, keynotes, partnerships, or investment dialogue.
           </h2>
-          <p className="mt-4 max-w-xl text-ivory/70">
+          <p className="mt-4 max-w-xl text-brand-ivory/80">
             Built for governments, industry associations, veterinary companies, conference organizers,
             and institutional partners seeking global animal health leadership.
           </p>
@@ -291,7 +284,7 @@ export function HomeCTA() {
               asChild
               variant="secondary"
               size="lg"
-              className="border-ivory/25 text-ivory hover:bg-ivory/5"
+              className="border-brand-ivory/35 text-brand-ivory hover:bg-brand-ivory/10"
             >
               <Link href="/downloads">Download speaker kit</Link>
             </Button>

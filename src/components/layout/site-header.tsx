@@ -14,35 +14,15 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const inverted = pathname === "/";
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 border-b transition-colors duration-300",
-        inverted
-          ? "border-brand-ivory/10 bg-brand-navy/95 backdrop-blur-xl"
-          : "border-border/60 bg-background/80 backdrop-blur-xl"
-      )}
-    >
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-white/90 backdrop-blur-xl dark:bg-surface/90">
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
         <Link href="/" className="group min-w-0" onClick={() => setOpen(false)}>
-          <span
-            className={cn(
-              "block truncate font-display text-[1.15rem] leading-none tracking-tight transition-colors",
-              inverted
-                ? "text-brand-ivory"
-                : "text-foreground group-hover:text-navy-soft dark:group-hover:text-ivory-muted"
-            )}
-          >
+          <span className="block truncate font-display text-[1.15rem] leading-none tracking-tight text-foreground transition-colors group-hover:text-brand-navy">
             {siteConfig.shortName}
           </span>
-          <span
-            className={cn(
-              "mt-1 block text-[10px] font-medium uppercase tracking-[0.18em]",
-              inverted ? "text-brand-ivory/55" : "text-muted"
-            )}
-          >
+          <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.18em] text-muted">
             Animal Health · Agribusiness · One Health
           </span>
         </Link>
@@ -58,23 +38,20 @@ export function SiteHeader() {
               <Link
                 href={item.href}
                 className={cn(
-                  "rounded-full px-3.5 py-2 text-sm transition-colors",
-                  inverted
-                    ? "text-brand-ivory/70 hover:text-brand-ivory"
-                    : "text-muted hover:text-foreground",
-                  !inverted && pathname.startsWith(item.href) && "text-foreground"
+                  "rounded-full px-3.5 py-2 text-sm text-muted transition-colors hover:text-foreground",
+                  pathname.startsWith(item.href) && "text-brand-navy"
                 )}
               >
                 {item.title}
               </Link>
               {item.children && activeMenu === item.title ? (
                 <div className="absolute left-0 top-full pt-3">
-                  <div className="w-[22rem] overflow-hidden rounded-2xl border border-border bg-surface/95 p-2 shadow-elevated backdrop-blur-xl">
+                  <div className="w-[22rem] overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-elevated dark:bg-surface">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block rounded-xl px-3.5 py-3 transition-colors hover:bg-foreground/[0.04]"
+                        className="block rounded-xl px-3.5 py-3 transition-colors hover:bg-brand-navy/[0.04]"
                       >
                         <span className="block text-sm font-medium text-foreground">{child.title}</span>
                         {child.description ? (
@@ -94,33 +71,18 @@ export function SiteHeader() {
         <div className="flex items-center gap-1.5">
           <Link
             href="/knowledge"
-            className={cn(
-              "hidden h-10 w-10 items-center justify-center rounded-full transition-colors md:inline-flex",
-              inverted
-                ? "text-brand-ivory/70 hover:bg-brand-ivory/10 hover:text-brand-ivory"
-                : "text-muted hover:bg-foreground/5 hover:text-foreground"
-            )}
+            className="hidden h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-brand-navy/5 hover:text-foreground md:inline-flex"
             aria-label="Search knowledge"
           >
             <Search className="h-4 w-4" />
           </Link>
-          <div className={cn(inverted && "[&_button]:text-brand-ivory [&_button:hover]:bg-brand-ivory/10")}>
-            <ThemeToggle />
-          </div>
-          <Button
-            asChild
-            variant={inverted ? "gold" : "primary"}
-            size="sm"
-            className="hidden sm:inline-flex"
-          >
+          <ThemeToggle />
+          <Button asChild variant="primary" size="sm" className="hidden sm:inline-flex">
             <Link href="/contact">Engage</Link>
           </Button>
           <button
             type="button"
-            className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-full lg:hidden",
-              inverted ? "text-brand-ivory" : "text-foreground"
-            )}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
@@ -130,12 +92,7 @@ export function SiteHeader() {
       </Container>
 
       {open ? (
-        <div
-          className={cn(
-            "border-t lg:hidden",
-            inverted ? "border-brand-ivory/10 bg-brand-navy text-brand-ivory" : "border-border bg-background"
-          )}
-        >
+        <div className="border-t border-border bg-white dark:bg-surface lg:hidden">
           <Container className="max-h-[80vh] space-y-4 overflow-y-auto py-5">
             {primaryNav.map((item) => (
               <div key={item.title} className="space-y-1">
@@ -147,17 +104,14 @@ export function SiteHeader() {
                     key={child.href}
                     href={child.href}
                     onClick={() => setOpen(false)}
-                    className={cn(
-                      "block py-2 text-base",
-                      inverted ? "text-brand-ivory" : "text-foreground"
-                    )}
+                    className="block py-2 text-base text-foreground"
                   >
                     {child.title}
                   </Link>
                 ))}
               </div>
             ))}
-            <Button asChild className="w-full" variant={inverted ? "gold" : "primary"}>
+            <Button asChild className="w-full">
               <Link href="/contact" onClick={() => setOpen(false)}>
                 Contact
               </Link>

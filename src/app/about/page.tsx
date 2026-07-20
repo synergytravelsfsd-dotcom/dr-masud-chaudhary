@@ -43,7 +43,7 @@ export default function AboutPage() {
 
       <Section>
         <Container className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative aspect-[3/4] overflow-hidden bg-[#0a1628]/5">
+          <div className="relative aspect-[3/4] overflow-hidden bg-brand-navy/5">
             <Portrait
               priority
               className="object-[center_14%]"

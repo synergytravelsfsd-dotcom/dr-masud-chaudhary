@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Digital headquarters for animal health leadership, poultry innovation, and veterinary pharmaceuticals.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f7f4ee",
-    theme_color: "#0a1628",
+    background_color: "#f4f8fc",
+    theme_color: "#0b5cab",
     lang: "en",
     icons: [
       {

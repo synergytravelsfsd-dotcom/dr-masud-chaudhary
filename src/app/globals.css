@@ -1,36 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --brand-navy: #0a1628;
-  --brand-navy-soft: #16304a;
-  --brand-ivory: #f3eee4;
-  --brand-ivory-muted: #e8e1d4;
-  --navy: #0a1628;
-  --navy-soft: #16304a;
-  --ivory: #f3eee4;
-  --ivory-muted: #e8e1d4;
-  --gold: #b8956c;
-  --gold-soft: #c9aa84;
-  --background: #f7f4ee;
-  --foreground: #0a1628;
-  --surface: #fffdfa;
-  --muted: #5d6978;
-  --border: rgba(10, 22, 40, 0.1);
-  --ring: rgba(184, 149, 108, 0.55);
+  /* Permanent brand — brighter professional blue */
+  --brand-navy: #0b5cab;
+  --brand-navy-soft: #1a74c7;
+  --brand-ivory: #f7fbff;
+  --brand-ivory-muted: #e8f2fb;
+
+  /* Interactive / themeable */
+  --navy: #0b5cab;
+  --navy-soft: #1a74c7;
+  --ivory: #f7fbff;
+  --ivory-muted: #e8f2fb;
+  --gold: #0d8a96;
+  --gold-soft: #12a3b0;
+
+  --background: #f4f8fc;
+  --foreground: #102033;
+  --surface: #ffffff;
+  --muted: #5b6c7e;
+  --border: rgba(16, 48, 80, 0.1);
+  --ring: rgba(13, 138, 150, 0.45);
 }
 
 .dark {
-  --background: #070e17;
-  --foreground: #f3eee4;
-  --surface: #0d1724;
-  --muted: #9aa6b5;
-  --border: rgba(243, 238, 228, 0.12);
-  --navy: #f3eee4;
-  --navy-soft: #d8d1c4;
-  --ivory: #0a1628;
+  --background: #0a1524;
+  --foreground: #eef5fc;
+  --surface: #112235;
+  --muted: #9aadc0;
+  --border: rgba(238, 245, 252, 0.12);
+  --navy: #eef5fc;
+  --navy-soft: #c5d7ea;
+  --ivory: #0a1524;
   --ivory-muted: #122033;
-  --gold: #c9aa84;
-  --gold-soft: #d8bc96;
+  --gold: #2ec4d0;
+  --gold-soft: #5ad4dd;
 }
 
 @theme inline {
@@ -53,13 +57,13 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
-  --shadow-elevated: 0 24px 60px rgba(10, 22, 40, 0.12);
+  --shadow-elevated: 0 20px 50px rgba(11, 92, 171, 0.1);
   --background-image-hero-glow: radial-gradient(
-      60% 50% at 12% 8%,
-      rgba(184, 149, 108, 0.16),
-      transparent 60%
+      55% 45% at 8% 0%,
+      rgba(46, 196, 208, 0.18),
+      transparent 55%
     ),
-    radial-gradient(45% 40% at 88% 0%, rgba(22, 48, 74, 0.12), transparent 55%);
+    radial-gradient(50% 40% at 92% 8%, rgba(26, 116, 199, 0.2), transparent 50%);
 }
 
 @layer base {
@@ -79,7 +83,7 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--gold) 35%, transparent);
+    background: color-mix(in oklab, var(--gold) 30%, transparent);
   }
 }
 
@@ -101,7 +105,7 @@
   }
 
   .glass-panel {
-    background: color-mix(in oklab, var(--surface) 78%, transparent);
+    background: color-mix(in oklab, var(--surface) 82%, transparent);
     border: 1px solid var(--border);
     backdrop-filter: blur(16px);
   }

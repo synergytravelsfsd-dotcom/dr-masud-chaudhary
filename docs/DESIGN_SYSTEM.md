@@ -6,7 +6,7 @@ Professional · Visionary · Trustworthy · Global · Data-driven · Authoritati
 
 ## Visual direction
 
-Deep navy authority + warm ivory atmospheric field + restrained bronze-gold accent. Editorial serif for identity; precise geometric sans for interface.
+Bright professional blue + cool white field + teal accent. Editorial serif for identity; precise geometric sans for interface. Open, luminous, executive — not dark or heavy.
 
 Avoid: purple gradients, terracotta-cream clichés, broadsheet density, glow-heavy dark UI, pill-stat clusters.
 
@@ -14,14 +14,14 @@ Avoid: purple gradients, terracotta-cream clichés, broadsheet density, glow-hea
 
 | Token | Light | Role |
 | --- | --- | --- |
-| `brand-navy` | `#0A1628` | Permanent brand / footer / dark hero |
-| `brand-ivory` | `#F3EEE4` | Permanent ivory on navy surfaces |
-| `background` | `#F7F4EE` | Page field |
-| `surface` | `#FFFDFA` | Elevated panels |
-| `foreground` | `#0A1628` | Primary text |
-| `muted` | `#5D6978` | Secondary text |
-| `gold` | `#B8956C` | Accent, eyebrows, focus |
-| `border` | `rgba(10,22,40,.10)` | Hairline structure |
+| `brand-navy` | `#0B5CAB` | Brand blue / hero / footer |
+| `brand-ivory` | `#F7FBFF` | Text on brand blue surfaces |
+| `background` | `#F4F8FC` | Cool bright page field |
+| `surface` | `#FFFFFF` | Elevated panels |
+| `foreground` | `#102033` | Primary text |
+| `muted` | `#5B6C7E` | Secondary text |
+| `gold` | `#0D8A96` | Teal accent (eyebrows, CTAs, focus) |
+| `border` | `rgba(16,48,80,.10)` | Hairline structure |
 
 Dark mode remaps interactive `navy`/`ivory` text tokens while preserving `brand-*` for permanent brand blocks.
 
